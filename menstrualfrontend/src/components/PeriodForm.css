@@ -1,0 +1,40 @@
+/* PeriodForm.css */
+
+.period-form {
+  max-width: 350px;
+  margin: 70px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fec89a;
+    
+  }
+  
+  .period-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .period-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .period-form button[type='submit'] {
+    width: 100%;
+    padding: 12px;
+    background-color: #f08080;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .period-form button[type='submit']:hover {
+    background-color: #f27059;
+  }
+  
