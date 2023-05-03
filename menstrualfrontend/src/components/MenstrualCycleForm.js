@@ -27,9 +27,6 @@ const MenstrualCycleForm = () => {
     
     };
 
-
-
-
     return (
         <div>
             <form className='period-form' onSubmit={handleFormSubmit}>
@@ -50,7 +47,7 @@ const MenstrualCycleForm = () => {
                     required />
                 <button type="submit">Submit</button>
             </form>
-                <MenstrualCycleInfo result={result}/>
+                <MenstrualCycleInfo results={result}/>
         </div>
     );
 };
