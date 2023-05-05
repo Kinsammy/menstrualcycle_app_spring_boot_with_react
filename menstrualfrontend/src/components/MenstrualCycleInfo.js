@@ -5,69 +5,43 @@ import 'react-calendar/dist/Calendar.css';
 import format from 'date-fns/format';
 
 
-const MenstrualCycleInfo = ({results}) => {
-    const [selectedDate, setSeletedDate] = useState(new Date());
-    const nextPeriodDate = results.nextPeriod;
-    const ovulationDate = results.ovulationDate;
-    const fertileWindows = results.fertileWindows;
 
-    const handleDateChange = (date) => {
-        setSeletedDate(date);
-    };
-
-    // const tileClassName = ({ date, view }) => {
-    //     if (view === 'month') {
-    //       const formattedDate = format(date, 'yyyy-MM-dd');
-    //       const content = results.map(result => {
-    //         if (formattedDate === result.nextPeriodDate) {
-    //           return <div className='period-date'>{result.nextPeriod} </div>;
-    //         }
-    //         if (formattedDate === result.ovulationDate) {
-    //           return <div className='ovulation-date'>{result.ovulationDate} </div>;
-    //         }
-    //         if (result.fertileWindows && result.fertileWindows.includes(formattedDate)) {
-    //           return <div className='fertile-date'>{formattedDate}</div>;
-    //         }
-    //         return null;
-    //       });
-    //       return content;
-    //     }
-    //     return null;
-    //   };
-
-    const tileContent = ({ date, view }) => {
-        if (view === 'month') {
-            const formattedDate = format(date, 'yyyy-MM-dd');
-            if (formattedDate === nextPeriodDate) {
-                return <div className='period-date'>{nextPeriodDate} </div>;
-            }
-
-            if (formattedDate === ovulationDate) {
-                return <div className='ovulation-date'>{ovulationDate} </div>;
-            }
-            if (fertileWindows && fertileWindows.includes(formattedDate)) {
-                return <div className='fertile-date'>{formattedDate}</div>;
-            }
-            
+const tileClassName = ({ date, view, results }) => {
+    if (view === 'month') {
+      const formattedDate = format(date, 'yyyy-MM-dd');
+      for (var i = 0; i < results.length; i++) {
+        const result = results[i];
+        if (formattedDate === result.nextPeriod) {
+          return 'period-date';
+        } else if (formattedDate === result.ovulationDate) {
+          return 'ovulation-date';
+        } else if (result.fertileWindows.includes(formattedDate)) {
+          return 'fertile-date';
         }
-        return null;
+      }
+      return null;
     }
+  };
 
 
+  const MenstrualCycleInfo = ({ results }) => {
+    const [selectedDate, setSelectedDate] = useState(new Date());
+  
+    const handleDateChange = (date) => {
+      setSelectedDate(date);
+    };
+  
     return (
-        <div className='result'>
-            <h3>Menstrual Cycle Information</h3>
-            
-            <Calendar
-                value={selectedDate}
-                tileContent={tileContent}
-                onChange={handleDateChange}
-                
-            />
-        </div>
-        
+      <div className='result'>
+        <h3>Menstrual Cycle Information</h3>
+  
+        <Calendar
+          value={selectedDate}
+          tileClassName={({ date, view }) => tileClassName({ date, view, results })}
+          onChange={handleDateChange}
+        />
+      </div>
     );
-};
-
-
-export default MenstrualCycleInfo;
+  };
+  
+  export default MenstrualCycleInfo;

@@ -6,7 +6,7 @@ import MenstrualCycleInfo from './MenstrualCycleInfo';
 const MenstrualCycleForm = () => {
     const [startDate, setStartDate] = useState('')
     const [cycleLength, setCycleLength] = useState('')
-    const [result, setResult] = useState('')
+    const [result, setResult] = useState([])
     
     const handleFormSubmit = (e) => {
         e.preventDefault();

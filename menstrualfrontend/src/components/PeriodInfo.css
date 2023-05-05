@@ -1,21 +1,23 @@
 .result {
-    max-width: 350px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fec89a;
+  max-width: 350px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fec89a;
 }
 
 .period-date {
-    background-color: #FF0000;
+  background-color: #ff0000 !important;
+  color: white;
 }
 
 .ovulation-date {
-    background-color:#FF1493;
+  background-color: #ff1493 !important;
+  color: white;
 }
 
 .fertile-date {
-    background-color: #8B008B;
-    font-weight: 500;
+  background-color: #8b008b !important;
+  color: white !important;
 }
